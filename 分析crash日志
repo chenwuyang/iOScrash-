@@ -1,0 +1,8 @@
+1.桌面创建crash文件夹
+2.苹果审核给的日志直接下载修改为.crash结尾|手机中.crash 文件：（Window --> Devices and Simulators --> View Device Logs --- > 右键 export Log）  存放在crash文件夹中
+3.工具symbolicatecrash：（终端：find /Applications/Xcode.app -name symbolicatecrash -type f  会把symbolicatecrash的路径打印出来，把他复制一个到crash文件夹中
+4.应用的.dSYM文件（Window --> Organize --> Show in Finder -> 显示包内容 -> dSYMs）,复制一个到crash文件夹
+5.输入中括号内命令【./symbolicatecrash ./*.crash ./*.app.dSYM>symbol.crash】
+6.如果提示"DEVELOPER_DIR" is not defined at xxxxxxxxxxxxxx,那么输入以下命令：
+  【export DEVELOPER_DIR="/Applications/XCode.app/Contents/Developer"】
+7.再次输入命令【./symbolicatecrash ./*.crash ./*.app.dSYM>symbol.crash】
